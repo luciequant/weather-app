@@ -44,8 +44,13 @@ main {
 }
 .weather-city {
   margin: 0;
-  font-size: 42px;
-  line-height: 56px;
+  font-size: 38px;
+  line-height: 48px;
+}
+.weather-country {
+  font-size: 28px;
+  font-weight: bold;
+  color: #8197ae;
 }
 .weather-details {
   font-size: 18px;
@@ -71,6 +76,19 @@ main {
 .weather-unit {
   font-size: 24px;
   margin-top: 8px;
+}
+.weather-forecast {
+  margin-top: 10px;
+  color: #6e7682;
+}
+.weather-forecast-date {
+  font-size: 18px;
+}
+.weather-forecast-temperature {
+  font-size: 14px;
+}
+.temperature-min {
+  opacity: 0.5;
 }
 footer {
   border-top: 1px solid #c2d6e8;
