@@ -54,7 +54,37 @@ function enterCity(event) {
   searchCity(searchInput.value);
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `
+   <div class="row">
+            <div class="col-2"></div>
+            <div class="weather-forecast-date">${day}</div>
+            <img
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+              width="36"
+            />
+            <div class="weather-forecast-temperature">
+              <span class="temperature-max">20°</span>
+              <span class="temperature-min">12°</span>
+            </div>
+    </div>
+`;
+  });
+
+  forecastElement.innerHTML = forecastHtml;
+}
+
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", enterCity);
 
 searchCity("Madrid");
+
+displayForecast();
