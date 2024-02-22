@@ -17,6 +17,8 @@ function refreshWeather(response) {
   windElement.innerHTML = `${response.data.wind.speed}km/h`;
   timeElement.innerHTML = formatDate(date);
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-icon" /> `;
+
+  getForecast(response.data.city);
 }
 function formatDate(date) {
   let minutes = date.getMinutes();
@@ -53,8 +55,12 @@ function enterCity(event) {
 
   searchCity(searchInput.value);
 }
-
-function displayForecast() {
+function getForecast(city) {
+  let apiKey = "5fb1305ca3a3b7a0bo4908f8ftf4371a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(displayForecast);
+}
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -67,10 +73,7 @@ function displayForecast() {
    <div class="row">
             <div class="col-2"></div>
             <div class="weather-forecast-date">${day}</div>
-            <img
-              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
-              width="36"
-            />
+            <div class="weather-forecast-icon">🌤️</div>
             <div class="weather-forecast-temperature">
               <span class="temperature-max">20°</span>
               <span class="temperature-min">12°</span>
@@ -86,5 +89,3 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", enterCity);
 
 searchCity("Madrid");
-
-displayForecast();

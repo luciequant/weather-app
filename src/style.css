@@ -85,9 +85,15 @@ main {
 }
 .weather-forecast-date {
   font-size: 18px;
+  text-align: center;
+}
+.weather-forecast-icon {
+  font-size: 38px;
+  text-align: center;
 }
 .weather-forecast-temperature {
   font-size: 14px;
+  text-align: center;
 }
 .temperature-min {
   opacity: 0.5;
